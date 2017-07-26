@@ -43,8 +43,10 @@ public class TimeEntryApiTest {
         dataSource.setUrl(System.getenv("SPRING_DATASOURCE_URL"));
 
         RestTemplateBuilder builder = new RestTemplateBuilder()
-                .rootUri("http://localhost:" + port)
-                .basicAuthorization("user", "password");
+
+            .rootUri("http://localhost:" + port)
+            .basicAuthorization("user", "password");
+
 
         restTemplate = new TestRestTemplate(builder);
 

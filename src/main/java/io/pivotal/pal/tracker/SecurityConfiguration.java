@@ -22,17 +22,21 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         }
 
         http
-                .authorizeRequests().antMatchers("/**").hasRole("USER")
-                .and()
-                .httpBasic()
-                .and()
-                .csrf().disable();
+
+            .authorizeRequests().antMatchers("/**").hasRole("USER")
+            .and()
+            .httpBasic()
+            .and()
+            .csrf().disable();
+
     }
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
-                .inMemoryAuthentication()
-                .withUser("user").password("password").roles("USER");
+
+            .inMemoryAuthentication()
+            .withUser("user").password("password").roles("USER");
     }
 }
+
