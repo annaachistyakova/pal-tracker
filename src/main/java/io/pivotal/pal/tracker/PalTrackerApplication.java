@@ -9,14 +9,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
+import javax.sql.DataSource;
+
 @SpringBootApplication
 public class PalTrackerApplication {
 
     // @Bean method which returns your implementation of the
     // TimeEntryRepository in the PalTrackerApplication class
     @Bean
-    public TimeEntryRepository TimeEntryRepository(){
-        return new InMemoryTimeEntryRepository();
+    public TimeEntryRepository TimeEntryRepository(DataSource dataS){
+        return new JdbcTimeEntryRepository(dataS);
     }
 
     // a bean method that returns an instance of ObjectMapper which properly deserializes ISO-8601

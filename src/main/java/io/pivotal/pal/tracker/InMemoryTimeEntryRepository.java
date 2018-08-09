@@ -23,7 +23,7 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository{
         return newTimeEntry;
     }
     @Override
-    public TimeEntry find(long id_global){
+    public TimeEntry find(Long id_global){
         for (int i = 0; i < timeEntries.size(); i++) {
             if(timeEntries.get(i).getId() == id_global){
                 return timeEntries.get(i);
@@ -32,7 +32,7 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository{
         return null;
     }
     @Override
-    public TimeEntry update(long idOfTimeEntryToBeUpdated, TimeEntry newInfoForTimeEntry){
+    public TimeEntry update(Long idOfTimeEntryToBeUpdated, TimeEntry newInfoForTimeEntry){
         TimeEntry timeEntryToBeUpdated = new TimeEntry(
                 idOfTimeEntryToBeUpdated,
                 newInfoForTimeEntry.getProjectId(),
@@ -45,14 +45,14 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository{
 
     }
     @Override
-    public void delete(long id_global){
+    public void delete(Long id_global){
         timeEntries.remove(find(id_global));
     }
     @Override
     public List<TimeEntry> list(){
         return timeEntries;
     }
-    public int getIndex(long id_global){
+    public int getIndex(Long id_global){
         for (int i = 0; i < timeEntries.size(); i++) {
             if(timeEntries.get(i).getId() == id_global){
                 return i;
