@@ -1,4 +1,4 @@
-/*
+
 package test.pivotal.pal.trackerapi;
 
 import io.pivotal.pal.tracker.PalTrackerApplication;
@@ -25,4 +25,3 @@ public class WelcomeApiTest {
         assertThat(body).isEqualTo("Hello from test");
     }
 }
-*/
