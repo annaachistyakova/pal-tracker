@@ -3,6 +3,6 @@ applications:
 - name: pal-tracker
   path: build/libs/pal-tracker.jar
   routes:
-  - route: ac-pal-tracker-comedic-turtle.apps.pcf.paltraining.perficient.com
+  - route: ac-pal-tracker-comedic-turtle.apps.evans.pal.pivotal.io
   env:
     WELCOME_MESSAGE: Hello from the review environment
