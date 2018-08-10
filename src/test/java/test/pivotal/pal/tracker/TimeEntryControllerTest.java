@@ -1,5 +1,8 @@
 package test.pivotal.pal.tracker;
 
+import org.springframework.boot.actuate.metrics.CounterService;
+import org.springframework.boot.actuate.metrics.GaugeService;
+
 import io.pivotal.pal.tracker.TimeEntry;
 import io.pivotal.pal.tracker.TimeEntryController;
 import io.pivotal.pal.tracker.TimeEntryRepository;
@@ -21,10 +24,16 @@ public class TimeEntryControllerTest {
     private TimeEntryRepository timeEntryRepository;
     private TimeEntryController controller;
 
+    private CounterService counter;
+    private GaugeService gauge;
+
     @Before
     public void setUp() throws Exception {
         timeEntryRepository = mock(TimeEntryRepository.class);
-        controller = new TimeEntryController(timeEntryRepository);
+        counter = mock(CounterService.class);
+        gauge = mock(GaugeService.class);
+
+        controller = new TimeEntryController(timeEntryRepository, counter, gauge);
     }
 
     @Test
